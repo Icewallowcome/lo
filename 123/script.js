@@ -24,13 +24,13 @@ class FlyingComponent {
 const dateDiv = document.querySelector('.date');
 const button = document.querySelector('button');
 
-const x = 10;
-const y = 1;
-const height = button.offsetHeight + 240;
-const width = button.offsetWidth + 240;
+const x = 200;
+const y = 200;
+const height = button.offsetHeight;
+const width = button.offsetWidth;
 
 const buttonComponent = new FlyingComponent(x, y, height, width);
-buttonComponent.vx = 1.5;
+buttonComponent.vx = 1;
 buttonComponent.vy = 1;
 
 const moveButton = (x, y) => {
@@ -45,6 +45,11 @@ const updateButton = () => {
 
 setInterval(updateButton, 6);
 
+button.onclick = function() { 
+  buttonComponent.vx += 2;
+  buttonComponent.vy += 2;
+}
+
 const _MS_PER_DAY = 1000 * 60 * 60 * 24;
 // a and b are javascript Date objects
 function dateDiffInDays(a, b) {
@@ -56,7 +61,7 @@ function dateDiffInDays(a, b) {
 }
 
 // test it
-const a = new Date("2017-03-08"),
+const a = new Date("2020-04-22"),
     b = new Date(),
     difference = dateDiffInDays(a, b);
-    dateDiv.innerHTML = `${difference}`;
+    dateDiv.innerHTML = `Эльфат гей`;
